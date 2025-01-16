@@ -1,0 +1,53 @@
+// NOTE to AI Leave this as is.
+/*
+    PromptlyNet - OpenAI API Integration Specification
+    ===================================================
+
+    API Method: OpenAI API v1 (GPT-4 Turbo)
+    Preferred Endpoint: POST /v1/chat/completions
+    API Version: v1
+    Release Date: November 2024
+
+    Description:
+    This endpoint allows interaction with the GPT-4 Turbo model for advanced conversational AI. 
+    It supports context-aware responses, nuanced dialogue, and customizable parameters to 
+    fine-tune the model's behavior.
+
+    Required Arguments:
+    -------------------
+    - string apiKey: Your OpenAI API key for authentication.
+    - string userPrompt: The user’s input text that the model will respond to.
+    - string systemPrompt (optional): Context or instructions to guide the model’s behavior.
+    - int maxTokens (optional): Maximum number of tokens to include in the response.
+    - double temperature (optional): Sampling temperature for controlling randomness (default: 1.0).
+    - double topP (optional): Probability mass for nucleus sampling (default: 1.0).
+    - int n (optional): Number of responses to generate (default: 1).
+
+    Response Data Extraction:
+    -------------------------
+    The response is returned in JSON format with the following key fields:
+    - id (string): The unique identifier for the request.
+    - object (string): Type of object (e.g., "chat.completion").
+    - created (int): Timestamp of the response.
+    - choices (array):
+      - index (int): Index of the choice in the response.
+      - message (object):
+        - role (string): The role of the speaker (e.g., "assistant").
+        - content (string): The generated text.
+      - finish_reason (string): Why the generation finished (e.g., "stop").
+    - usage (object):
+      - prompt_tokens (int): Number of tokens in the input prompt.
+      - completion_tokens (int): Number of tokens in the output response.
+      - total_tokens (int): Total tokens used.
+
+    Special Instructions:
+    ---------------------
+    - Include your API key in the Authorization header as a Bearer token.
+    - Handle HTTP status codes (e.g., 200 for success, 401 for unauthorized).
+    - Implement retries for rate-limited responses (status 429).
+    - Log the "usage" object for token management and cost tracking.
+
+    Sample Usage:
+
+
+*/
